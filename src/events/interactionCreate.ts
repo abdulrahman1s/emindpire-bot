@@ -6,14 +6,15 @@ const
     BOOSTER_ROLE_ID = '587775258962952224'
 
 const handleButtons = async (ctx: ButtonInteraction<'present'>) => {
-    const member = await ctx.guild!.members.fetch(ctx.user.id)
+    if (!['create_vc', 'lock_vc', 'unlock_vc'].includes(ctx.customId)) return
 
     const reply = (content: string) => {
         return ctx.reply({ content, ephemeral: true })
     }
 
+    const member = await ctx.guild!.members.fetch(ctx.user.id)
 
-    if (!['create_vc', 'lock_vc', 'unlock_vc'].includes(ctx.customId) || !member.roles.cache.hasAny(BOOSTER_ROLE_ID, DONATOR_ROLE_ID)) {
+    if (!member.roles.cache.hasAny(BOOSTER_ROLE_ID, DONATOR_ROLE_ID)) {
         if (ctx.user.id !== MAESTRO_ID) return reply('You must be a booster/donator to access this future')
     }
 
