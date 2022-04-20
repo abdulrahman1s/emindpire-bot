@@ -1,0 +1,31 @@
+{
+  "name": "emindpire-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for Emindpire server",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "node --experimental-specifier-resolution=node dist/index",
+    "start:quick": "npm run build && npm run start"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheMaestro1s/emindpire-bot.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheMaestro1s/emindpire-bot/issues"
+  },
+  "homepage": "https://github.com/TheMaestro1s/emindpire-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "discordjs-docs-parser": "^1.1.1",
+    "dotenv": "^16.0.0",
+    "node-fetch": "^3.2.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
